@@ -100,7 +100,7 @@ export default function Home() {
               </p>
             </Link>
             <Link
-              href={"/controle"}
+              href={"/controle#parada-emergencia"}
               className="bg-vermelho/30 rounded-md shadow-md p-7 flex justify-center
             items-center flex-col gap-2 text-center hover:cursor-pointer"
             >
@@ -117,7 +117,7 @@ export default function Home() {
               </p>
             </Link>
             <Link
-              href={"/dashboard"}
+              href={"/dashboard#status-cid"}
               className="bg-laranja/30 rounded-md shadow-md p-7 flex justify-center
             items-center flex-col gap-2 text-center hover:cursor-pointer"
             >

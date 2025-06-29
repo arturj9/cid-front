@@ -7,9 +7,9 @@ export function NavBar() {
     <div>
       <nav
         className="bg-gradient-to-r from-amarelo-base to-amarelo-terc flex justify-between
-       px-10 h-12 items-center shadow-xl w-screen"
+       px-10 md:px-16 md:h-16 h-12 items-center shadow-xl "
       >
-        <div className="w-12 h-full relative">
+        <div className="w-14 h-14 relative">
           <Image src="/logo/logo_CID.png" color="white" alt="logo CID" fill />
         </div>
         <div className="md:hidden">

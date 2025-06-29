@@ -257,7 +257,7 @@ export default function Controle() {
             </div>
           </div>
         </div>
-        <div className="mt-8">
+        <section className="mt-8" id="parada-emergencia">
           <div className="bg-red-50 border border-red-200 rounded-lg p-6">
             <div className="flex items-center mb-4">
               <svg
@@ -304,7 +304,7 @@ export default function Controle() {
               PARADA DE EMERGÊNCIA
             </button>
           </div>
-        </div>
+        </section>
         <div className="mt-8 bg-white rounded-lg shadow-md p-6">
           <h3 className="text-lg font-semibold text-gray-900 mb-4">
             Log de Comandos
