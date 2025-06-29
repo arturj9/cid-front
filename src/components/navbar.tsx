@@ -1,5 +1,5 @@
 import Image from "next/image";
-// import { ItemMenu } from "./item-menu";
+import { MySheet } from "./mySheet";
 import { Home, BarChart3, Camera, Settings, LogIn } from "lucide-react";
 import Link from "next/link";
 export function NavBar() {
@@ -7,12 +7,15 @@ export function NavBar() {
     <div>
       <nav
         className="bg-gradient-to-r from-amarelo-base to-amarelo-terc flex justify-between
-       px-10 h-12 items-center shadow-xl w-screen "
+       px-10 h-12 items-center shadow-xl w-screen"
       >
         <div className="w-12 h-full relative">
           <Image src="/logo/logo_CID.png" color="white" alt="logo CID" fill />
         </div>
-        <div className=" h-10 flex items-center gap-4">
+        <div className="md:hidden">
+          <MySheet />
+        </div>
+        <div className=" h-10 md:flex items-center gap-4 hidden">
           <Link
             href={"/home"}
             className="flex gap-2 items-center justify-center min-w-20 text-white 
