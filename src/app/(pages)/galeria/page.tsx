@@ -1,5 +1,6 @@
-"use client"; 
+"use client";
 import { useState } from "react";
+import Image from "next/image";
 
 const imagens = [
   {
@@ -134,9 +135,11 @@ export default function Galeria() {
                 className="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow"
               >
                 <div className="relative group">
-                  <img
+                  <Image
                     src={img.url}
                     alt={img.titulo}
+                    width={1000}
+                    height={1000}
                     className="w-full h-48 object-cover"
                   />
                   <div className="absolute inset-0 bg-black bg-opacity-50 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center gap-2">
@@ -181,7 +184,9 @@ export default function Galeria() {
                   <h3 className="font-semibold text-gray-900 mb-1">
                     {img.titulo}
                   </h3>
-                  <p className="text-sm text-gray-600 mb-2">Setor {img.setor}</p>
+                  <p className="text-sm text-gray-600 mb-2">
+                    Setor {img.setor}
+                  </p>
                   <p className="text-xs text-gray-500">{img.data}</p>
                 </div>
               </div>
