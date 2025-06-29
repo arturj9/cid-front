@@ -3,7 +3,7 @@ import Link from "next/link";
 
 export function Footer() {
   return (
-    <footer className="bg-preto text-cinza p-5 w-screen absolute bottom-0">
+    <footer className="bg-preto text-cinza py-12 mt-16 ">
       <section className="flex flex-col md:flex-row md:justify-between gap-7 my-7 ">
         <div className="flex flex-col gap-5 md:flex-1/3">
           <h3 className="text-amarelo-sec font-bold text-lg">CID Manager</h3>
