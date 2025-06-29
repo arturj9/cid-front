@@ -13,13 +13,14 @@ import Link from "next/link";
 export function MySheet() {
   return (
     <Sheet>
-      <SheetTrigger>
+      <SheetTrigger asChild>
         <Menu color="white" />
       </SheetTrigger>
       <SheetContent className="bg-amarelo-base">
         <SheetHeader>
           <SheetTitle>CID Manager</SheetTitle>
           <SheetDescription
+            asChild
             className="my-10 flex flex-col gap-7 mx-auto
             w-36 items-start"
           >

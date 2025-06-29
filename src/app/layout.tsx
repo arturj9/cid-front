@@ -16,6 +16,7 @@ export const metadata: Metadata = {
   title: "CID Manager",
   description:
     "Aplicação web para o controle e gerenciamento do CID, um robô fazendeiro.",
+  icons: "/logo/logo_CID.svg",
 };
 
 export default function RootLayout({
