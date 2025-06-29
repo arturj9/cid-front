@@ -3,7 +3,7 @@ import { Footer } from "@/components/footer";
 
 export default function Controle() {
   return (
-    <div>
+    <div className="min-h-screen">
       <NavBar />
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="mb-8">
