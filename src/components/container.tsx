@@ -6,8 +6,6 @@ type Props = {
 
 export function Container({ children }: Props) {
   return (
-    <section className="w-full max-w-[1280px] mx-auto bg-background">
-      {children}
-    </section>
+    <section className="w-full max-w-[1280px] mx-auto ">{children}</section>
   );
 }
