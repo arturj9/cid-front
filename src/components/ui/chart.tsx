@@ -125,6 +125,8 @@ function ChartTooltipContent({
     indicator?: "line" | "dot" | "dashed"
     nameKey?: string
     labelKey?: string
+    payload?: any[]
+    label?: string | React.ReactNode
   }) {
   const { config } = useChart()
 
@@ -256,10 +258,11 @@ function ChartLegendContent({
   payload,
   verticalAlign = "bottom",
   nameKey,
-}: React.ComponentProps<"div"> &
-  Pick<RechartsPrimitive.LegendProps, "payload" | "verticalAlign"> & {
+}: React.ComponentProps<"div"> & {
     hideIcon?: boolean
     nameKey?: string
+    payload?: any[]
+    verticalAlign?: "top" | "bottom" | "middle" | undefined
   }) {
   const { config } = useChart()
 
@@ -307,7 +310,7 @@ function ChartLegendContent({
 // Helper to extract item config from a payload.
 function getPayloadConfigFromPayload(
   config: ChartConfig,
-  payload: unknown,
+  payload: any,
   key: string
 ) {
   if (typeof payload !== "object" || payload === null) {
