@@ -1,6 +1,6 @@
 import Image from "next/image";
 import { MySheet } from "./mySheet";
-import { Home, BarChart3, Camera, Settings, LogIn } from "lucide-react";
+import { Home, BarChart3, Camera, Settings, LogOut } from "lucide-react";
 import Link from "next/link";
 export function NavBar() {
   return (
@@ -53,8 +53,8 @@ export function NavBar() {
             className="flex gap-2 items-center justify-center min-w-20 text-white 
           rounded-sm p-1 text-sm hover:bg-laranja/75 transition-all duration-200"
           >
-            <LogIn width={20} />
-            Entrar
+            <LogOut width={20} />
+            Sair
           </Link>
         </div>
       </nav>

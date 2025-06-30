@@ -7,7 +7,7 @@ import {
   SheetTrigger,
 } from "@/components/ui/sheet";
 
-import { Menu, Home, BarChart3, Camera, Settings, LogIn } from "lucide-react";
+import { Menu, Home, BarChart3, Camera, Settings, LogOut } from "lucide-react";
 import Link from "next/link";
 
 export function MySheet() {
@@ -20,7 +20,6 @@ export function MySheet() {
         <SheetHeader>
           <SheetTitle>CID Manager</SheetTitle>
           <SheetDescription
-            asChild
             className="my-10 flex flex-col gap-7 mx-auto
             w-36 items-start"
           >
@@ -62,8 +61,8 @@ export function MySheet() {
               className="flex gap-3 items-center justify-center text-white 
           rounded-sm p-1 text-lg  "
             >
-              <LogIn width={30} />
-              Entrar
+              <LogOut width={30} />
+              Sair
             </Link>
           </SheetDescription>
         </SheetHeader>
