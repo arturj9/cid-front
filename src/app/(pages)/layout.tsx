@@ -21,20 +21,16 @@ export const metadata: Metadata = {
   icons: "/logo/logo_CID.svg",
 };
 
-export default function RootLayout({
+export default function pagesLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="pt-br">
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
-        <NavBar />
-        {children}
-        <Footer />
-      </body>
-    </html>
+    <div className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
+      <NavBar />
+      {children}
+      <Footer />
+    </div>
   );
 }

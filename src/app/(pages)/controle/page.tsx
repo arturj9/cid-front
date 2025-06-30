@@ -2,18 +2,21 @@
 import { useState } from "react";
 
 export default function Controle() {
-  const [status, setStatus] = useState<"Parado" | "Em execução" | "Pausado">("Parado");
-  const [setor, setSetor] = useState("A-1");
-  const [log, setLog] = useState<string[]>(
-    [
-      "[14:30:25] Sistema iniciado",
-      "[14:30:30] Robô CID conectado",
-    ]
+  const [status, setStatus] = useState<"Parado" | "Em execução" | "Pausado">(
+    "Parado"
   );
+  const [setor, setSetor] = useState("A-1");
+  const [log, setLog] = useState<string[]>([
+    "[14:30:25] Sistema iniciado",
+    "[14:30:30] Robô CID conectado",
+  ]);
 
   function handleIniciar() {
     setStatus("Em execução");
-    setLog((prev) => [...prev, `[${new Date().toLocaleTimeString()}] Iniciado`]);
+    setLog((prev) => [
+      ...prev,
+      `[${new Date().toLocaleTimeString()}] Iniciado`,
+    ]);
   }
 
   function handlePausar() {
@@ -28,30 +31,45 @@ export default function Controle() {
 
   function handleRetornarBase() {
     setSetor("Base");
-    setLog((prev) => [...prev, `[${new Date().toLocaleTimeString()}] Retornando à base`]);
+    setLog((prev) => [
+      ...prev,
+      `[${new Date().toLocaleTimeString()}] Retornando à base`,
+    ]);
   }
 
   function handleSetor(s: string) {
     setSetor(s);
-    setLog((prev) => [...prev, `[${new Date().toLocaleTimeString()}] Setor alterado para ${s}`]);
+    setLog((prev) => [
+      ...prev,
+      `[${new Date().toLocaleTimeString()}] Setor alterado para ${s}`,
+    ]);
   }
 
   function handleColetar() {
-    setLog((prev) => [...prev, `[${new Date().toLocaleTimeString()}] Coletar Dados`]);
+    setLog((prev) => [
+      ...prev,
+      `[${new Date().toLocaleTimeString()}] Coletar Dados`,
+    ]);
   }
 
   function handleFoto() {
-    setLog((prev) => [...prev, `[${new Date().toLocaleTimeString()}] Capturar Foto`]);
+    setLog((prev) => [
+      ...prev,
+      `[${new Date().toLocaleTimeString()}] Capturar Foto`,
+    ]);
   }
 
   function handleEmergencia() {
     setStatus("Parado");
-    setLog((prev) => [...prev, `[${new Date().toLocaleTimeString()}] PARADA DE EMERGÊNCIA!`]);
+    setLog((prev) => [
+      ...prev,
+      `[${new Date().toLocaleTimeString()}] PARADA DE EMERGÊNCIA!`,
+    ]);
   }
 
   return (
     <div className="min-h-screen">
-      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="max-w-4xl mx-auto px-4 py-7 sm:px-6 lg:px-8">
         <div className="mb-8">
           <h1 className="text-3xl font-bold text-gray-900">
             Controle do Robô CID
