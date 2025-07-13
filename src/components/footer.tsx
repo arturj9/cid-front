@@ -1,4 +1,4 @@
-import { Home, BarChart3, Camera, Settings, LogIn } from "lucide-react";
+import { Home, BarChart3, Camera, Settings, User } from "lucide-react";
 import Link from "next/link";
 
 export function Footer() {
@@ -39,6 +39,7 @@ export function Footer() {
               Navegação
             </h3>
             <Link
+              prefetch
               href={"/home"}
               className="flex gap-2 items-center hover:cursor-pointer
              hover:text-amarelo-sec w-32"
@@ -47,6 +48,7 @@ export function Footer() {
               Home
             </Link>
             <Link
+              prefetch
               href={"/dashboard"}
               className="flex gap-2 items-center hover:cursor-pointer
              hover:text-amarelo-sec w-32"
@@ -55,6 +57,7 @@ export function Footer() {
               Dashboard
             </Link>
             <Link
+              prefetch
               href={"/galeria"}
               className="flex gap-2 items-center hover:cursor-pointer
              hover:text-amarelo-sec w-32"
@@ -63,6 +66,7 @@ export function Footer() {
               Galeria
             </Link>
             <Link
+              prefetch
               href={"/controle"}
               className="flex gap-2 items-center hover:cursor-pointer
              hover:text-amarelo-sec w-32"
@@ -71,12 +75,13 @@ export function Footer() {
               Controle
             </Link>
             <Link
-              href={"/"}
+              href={"/perfil"}
+              prefetch
               className="flex gap-2 items-center hover:cursor-pointer 
             hover:text-amarelo-sec w-32"
             >
-              <LogIn width={20} />
-              Entrar
+              <User width={20} />
+              Perfil
             </Link>
           </div>
         </div>

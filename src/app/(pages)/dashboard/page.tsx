@@ -1,8 +1,8 @@
 import {
   Thermometer,
   Droplets,
-  Eye,
-  Camera,
+  Wind,
+  CloudSun,
   Activity,
   Battery,
   MapPin,
@@ -98,7 +98,7 @@ export default function Dashboard() {
                 className="w-16 h-16 rounded-full bg-verde flex
             justify-center items-center"
               >
-                <Eye color="white" />
+                <Wind color="white" />
               </div>
             </div>
             <div
@@ -107,16 +107,24 @@ export default function Dashboard() {
             >
               <div className="flex flex-col gap-2">
                 <p className="font-semibold text-black/80 text-sm">
-                  Fotos Coletadas
+                  Luminosidade
                 </p>
-                <h2 className="font-extrabold text-xl">156 </h2>
-                <p className="text-verde text-sm">+12 Hoje</p>
+                <h2 className="font-extrabold text-xl">
+                  70{" "}
+                  <span
+                    className="
+              font-normal"
+                  >
+                    %
+                  </span>{" "}
+                </h2>
+                <p className="text-verde text-sm">Dia</p>
               </div>
               <div
                 className="w-16 h-16 rounded-full bg-amarelo-terc flex
             justify-center items-center"
               >
-                <Camera color="white" />
+                <CloudSun color="white" />
               </div>
             </div>
           </section>

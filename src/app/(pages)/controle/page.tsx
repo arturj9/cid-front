@@ -24,10 +24,10 @@ export default function Controle() {
     setLog((prev) => [...prev, `[${new Date().toLocaleTimeString()}] Pausado`]);
   }
 
-  function handleParar() {
-    setStatus("Parado");
-    setLog((prev) => [...prev, `[${new Date().toLocaleTimeString()}] Parado`]);
-  }
+  // function handleParar() {
+  //   setStatus("Parado");
+  //   setLog((prev) => [...prev, `[${new Date().toLocaleTimeString()}] Parado`]);
+  // }
 
   function handleRetornarBase() {
     setSetor("Base");
@@ -141,7 +141,7 @@ export default function Controle() {
                   Pausar
                 </button>
               </div>
-              <button
+              {/* <button
                 className="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0 text-primary-foreground h-10 px-4 py-2 w-full bg-gray-600 hover:bg-gray-700"
                 onClick={handleParar}
                 disabled={status === "Parado"}
@@ -162,7 +162,7 @@ export default function Controle() {
                   <path d="M3 3v5h5"></path>
                 </svg>
                 Parar
-              </button>
+              </button> */}
               <button
                 className="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0 text-primary-foreground h-10 px-4 py-2 w-full bg-blue-600 hover:bg-blue-700"
                 onClick={handleRetornarBase}

@@ -7,7 +7,7 @@ import {
   SheetTrigger,
 } from "@/components/ui/sheet";
 
-import { Menu, Home, BarChart3, Camera, Settings, LogOut } from "lucide-react";
+import { Menu, Home, BarChart3, Camera, Settings, User } from "lucide-react";
 import Link from "next/link";
 
 export function MySheet() {
@@ -24,6 +24,7 @@ export function MySheet() {
             w-36 items-start"
           >
             <Link
+              prefetch
               href={"/home"}
               className="flex gap-3 items-center justify-center text-white 
           rounded-sm p-1 text-lg  "
@@ -33,6 +34,7 @@ export function MySheet() {
             </Link>
 
             <Link
+              prefetch
               href={"/dashboard"}
               className="flex gap-3 items-center justify-center text-white 
           rounded-sm p-1 text-lg  "
@@ -41,6 +43,7 @@ export function MySheet() {
               Dashboard
             </Link>
             <Link
+              prefetch
               href={"/galeria"}
               className="flex gap-3 items-center justify-center text-white 
           rounded-sm p-1 text-lg  "
@@ -49,6 +52,7 @@ export function MySheet() {
               Galeria
             </Link>
             <Link
+              prefetch
               href={"/controle"}
               className="flex gap-3 items-center justify-center text-white 
           rounded-sm p-1 text-lg  "
@@ -57,12 +61,13 @@ export function MySheet() {
               Controle
             </Link>
             <Link
-              href={"/"}
+              prefetch
+              href={"/perfil"}
               className="flex gap-3 items-center justify-center text-white 
           rounded-sm p-1 text-lg  "
             >
-              <LogOut width={30} />
-              Sair
+              <User width={30} />
+              Perfil
             </Link>
           </SheetDescription>
         </SheetHeader>
