@@ -47,8 +47,9 @@ export default function Home() {
 
           <section className=" grid md:grid-cols-2 lg:grid-cols-3 gap-4">
             <Link
+              prefetch
               href={"/dashboard"}
-              className="bg-azul/30 rounded-md shadow-md p-7 flex justify-center
+              className="bg-azul/30 transition-all duration-300 hover:bg-azul/40 rounded-md shadow-md p-7 flex justify-center
             items-center flex-col gap-2 text-center hover:cursor-pointer"
             >
               <div
@@ -66,8 +67,9 @@ export default function Home() {
               </p>
             </Link>
             <Link
+              prefetch
               href={"/galeria"}
-              className="bg-verde/30 rounded-md shadow-md p-7 flex justify-center
+              className="bg-verde/30 hover:bg-verde/40 transition-all duration-300 rounded-md shadow-md p-7 flex justify-center
             items-center flex-col gap-2 text-center hover:cursor-pointer"
             >
               <div
@@ -83,8 +85,10 @@ export default function Home() {
               </p>
             </Link>
             <Link
+              prefetch
               href={"/controle"}
-              className="bg-roxo/30 rounded-md shadow-md p-7 flex justify-center
+              className="bg-roxo/30 transition-all duration-300
+              hover:bg-roxo/40 rounded-md shadow-md p-7 flex justify-center
             items-center flex-col gap-2 text-center hover:cursor-pointer"
             >
               <div
@@ -100,8 +104,10 @@ export default function Home() {
               </p>
             </Link>
             <Link
+              prefetch
               href={"/controle#parada-emergencia"}
-              className="bg-vermelho/30 rounded-md shadow-md p-7 flex justify-center
+              className="bg-vermelho/30 transition-all duration-300
+              hover:bg-vermelho/40 rounded-md shadow-md p-7 flex justify-center
             items-center flex-col gap-2 text-center hover:cursor-pointer"
             >
               <div
@@ -117,8 +123,10 @@ export default function Home() {
               </p>
             </Link>
             <Link
+              prefetch
               href={"/dashboard#status-cid"}
-              className="bg-laranja/30 rounded-md shadow-md p-7 flex justify-center
+              className="bg-laranja/30 transition-all duration-300
+              hover:bg-laranja/40 rounded-md shadow-md p-7 flex justify-center
             items-center flex-col gap-2 text-center hover:cursor-pointer"
             >
               <div
@@ -134,8 +142,10 @@ export default function Home() {
               </p>
             </Link>
             <Link
+              prefetch
               href={"/galeria"}
-              className="bg-amarelo-base/30 rounded-md shadow-md p-7 flex justify-center
+              className="bg-amarelo-base/30 transition-all duration-300
+              hover:bg-amarelo-base/40 rounded-md shadow-md p-7 flex justify-center
             items-center flex-col gap-2 text-center hover:cursor-pointer"
             >
               <div
@@ -182,12 +192,11 @@ export default function Home() {
 
           <Link
             href={"/controle"}
-            className="flex py-2 transition-all duration-500 hover:cursor-pointer
-             hover:bg-background/25 items-center justify-center bg-background/15 rounded-xl
-              px-4 mx-auto mt-5 text-white text-lg font-semibold shadow-md 
-              border-1 border-laranja md:flex-1/2"
+            className="flex gap-2 py-2 hover:gap-4 transition-all duration-500 hover:cursor-pointer
+             hover:bg-white items-center justify-center bg-background rounded-xl
+              px-4 mx-auto mt-5 text-laranja text-lg font-semibold shadow-md md:flex-1/2"
           >
-            Ver Controles
+            Ver Controles <ArrowRight />
           </Link>
         </div>
       </section>

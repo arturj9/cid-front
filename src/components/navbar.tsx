@@ -9,10 +9,14 @@ export function NavBar() {
         className="bg-gradient-to-r from-amarelo-base to-amarelo-terc flex justify-between
        px-10 md:px-16 md:h-20 h-14 items-center shadow-xl "
       >
-        <Link href={"/home"} prefetch className="w-12 h-12 relative">
+        <Link
+          href={"/home"}
+          prefetch
+          className="w-8 h-8 md:w-12 md:h-12 relative"
+        >
           <Image src="/logo/logo_CID.png" color="white" alt="logo CID" fill />
         </Link>
-        <div className="md:hidden">
+        <div className="md:hidden hover:cursor-pointer">
           <MySheet />
         </div>
         <div className=" h-12 md:h-16 md:flex items-center gap-4 hidden">
