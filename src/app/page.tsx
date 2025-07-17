@@ -2,6 +2,8 @@
 import * as React from "react";
 import { useState } from "react";
 import { useRouter } from "next/navigation";
+import Image from "next/image";
+
 
 export default function Login() {
   const [usuario, setUsuario] = useState("");
@@ -11,64 +13,79 @@ export default function Login() {
 
   function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
-    // Exemplo de validação simples
-    if (usuario === "admin" && senha === "1234") {
+    if (usuario === "admin@gmail.com" && senha === "1234") {
       setErro("");
-      router.push("/home"); // Redireciona para a página home
+      router.push("/home");
     } else {
       setErro("Usuário ou senha inválidos.");
     }
   }
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gray-50">
-      <form
-        onSubmit={handleSubmit}
-        className="bg-white shadow-md rounded-lg p-8 w-full max-w-sm flex flex-col gap-6"
-      >
-        <h1 className="text-2xl font-bold text-center text-gray-900 mb-2">Login</h1>
-        <div>
-          <label className="block text-gray-700 mb-1" htmlFor="usuario">
-            Usuário
-          </label>
-          <input
-            id="usuario"
-            type="text"
-            className="w-full px-3 py-2 border rounded focus:outline-none focus:ring-2 focus:ring-yellow-500"
-            value={usuario}
-            onChange={e => setUsuario(e.target.value)}
-            required
+    <div className="min-h-screen bg-gradient-to-br from-yellow-50 via-amber-50 to-orange-50 flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
+      <div className="max-w-md w-full space-y-8">
+        <div className="flex flex-col items-center">
+          <Image
+            src="/logo/logo_CID.png" 
+            alt="Logo CID"
+            width={80}
+            height={80}
+            className="mb-4"
+            priority
           />
+          <h2 className="text-3xl font-bold text-gray-900">CID Manager</h2>
+          <p className="mt-2 text-gray-600">Sistema de Gerenciamento do Robô Agricultor</p>
         </div>
-        <div>
-          <label className="block text-gray-700 mb-1" htmlFor="senha">
-            Senha
-          </label>
-          <input
-            id="senha"
-            type="password"
-            className="w-full px-3 py-2 border rounded focus:outline-none focus:ring-2 focus:ring-yellow-500"
-            value={senha}
-            onChange={e => setSenha(e.target.value)}
-            required
-          />
-          <div className="text-right mt-1">
-            <a
-              href="/recuperar-senha"
-              className="text-sm text-yellow-600 hover:underline"
+        <div className="bg-white shadow-lg rounded-lg p-8">
+          <form className="space-y-4" onSubmit={handleSubmit}>
+            <div>
+              <label className="text-sm font-medium leading-none" htmlFor="login-email">
+                E-mail
+              </label>
+              <input
+                type="email"
+                className="flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-base ring-offset-background placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-yellow-500 focus-visible:ring-offset-2"
+                id="login-email"
+                placeholder="seu@email.com"
+                required
+                value={usuario}
+                onChange={e => setUsuario(e.target.value)}
+              />
+            </div>
+            <div>
+              <label className="text-sm font-medium leading-none" htmlFor="login-password">
+                Senha
+              </label>
+              <input
+                type="password"
+                className="flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-base ring-offset-background placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-yellow-500 focus-visible:ring-offset-2"
+                id="login-password"
+                placeholder="••••••••"
+                required
+                value={senha}
+                onChange={e => setSenha(e.target.value)}
+              />
+            </div>
+            {erro && (
+              <div className="text-red-600 text-sm text-center">{erro}</div>
+            )}
+            <button
+              className="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-yellow-500 focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 h-10 px-4 py-2 w-full bg-yellow-500 hover:bg-yellow-600 text-white"
+              type="submit"
             >
-              Esqueceu a senha?
-            </a>
-          </div>
+              Entrar
+            </button>
+            <div className="text-center">
+              <a
+                href="/recuperar-senha"
+                className="text-sm text-yellow-600 hover:text-yellow-500"
+              >
+                Esqueceu sua senha?
+              </a>
+            </div>
+          </form>
         </div>
-        {erro && <div className="text-red-600 text-sm text-center">{erro}</div>}
-        <button
-          type="submit"
-          className="w-full bg-yellow-500 hover:bg-yellow-600 text-white font-bold py-2 rounded transition-colors"
-        >
-          Entrar
-        </button>
-      </form>
+      </div>
     </div>
   );
 }
