@@ -40,7 +40,6 @@ export default function Login() {
       setLoading(false);
       console.log(err)
     }
-    toast.error("Email ou senha inválidos.");
     setLoading(false);
   };
 
