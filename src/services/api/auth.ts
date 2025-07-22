@@ -16,12 +16,10 @@ export async function login(
   credentials: LoginCredentials
 ): Promise<AuthResponse> {
   try {
-    const response = await api.post<AuthResponse>(
-      `${API_URL}/`,
-      credentials
-    );
+    const response = await api.post<AuthResponse>(`${API_URL}/`, credentials);
     return response.data;
   } catch (err) {
+    console.error(err);
     throw new Error("No token received in response");
   }
 }
@@ -33,6 +31,7 @@ export async function logout(): Promise<boolean> {
     }
     return true;
   } catch (err) {
+    console.error(err);
     return false;
   }
 }
