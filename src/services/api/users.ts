@@ -1,4 +1,3 @@
-import { deleteCookie, hasCookie, setCookie } from "cookies-next/client";
 import { api } from "./base";
 
 const API_URL = "/users";
