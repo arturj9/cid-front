@@ -1,6 +1,6 @@
 import Image from "next/image";
 import { MySheet } from "./mySheet";
-import { Home, BarChart3, Camera, Settings, User } from "lucide-react";
+import { Home, BarChart3, Camera, Settings } from "lucide-react";
 import Link from "next/link";
 export function NavBar() {
   return (

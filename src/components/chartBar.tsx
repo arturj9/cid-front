@@ -41,6 +41,7 @@ const chartConfig = {
 } satisfies ChartConfig;
 
 export function ChartBarMultiple({ data }: { data: Measurement[] }) {
+  console.log(data)
   return (
     <Card>
       <CardHeader>

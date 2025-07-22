@@ -47,6 +47,7 @@ export function ChartLineDots({ data }: { data: Measurement[] }) {
     desktop: item.temperature,
     mobile: item.temperature
   }))];
+  console.log(chartDataT)
   return (
     <Card>
       <CardHeader>
