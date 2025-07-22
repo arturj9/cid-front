@@ -6,6 +6,7 @@ import { MyDialogDemo } from "@/components/myDialog";
 import { MyButtonDemo } from "@/components/myButton";
 import { useEffect, useState } from "react";
 import { getUser, User } from "@/services/api/users";
+import { logout } from "@/services/api/auth";
 
 export default function Perfil() {
   const [user, setUser] = useState<User>();
@@ -27,7 +28,7 @@ export default function Perfil() {
       >
         <div className="flex gap-5 items-center">
           <div className="bg-slate-300 w-20 h-20 rounded-full object-cover flex justify-center items-center">
-            <img className="rounded-full " src="https://www.thispersondoesnotexist.com/" alt="Perfil" />
+            <img className="rounded-full " src="https://wallpapers.com/images/high/best-profile-pictures-gzz6bnaf4yygvrnw.webp" alt="Perfil" />
           </div>
           <div>
             <h2>{user?.name}</h2>
@@ -64,6 +65,9 @@ export default function Perfil() {
 
       <Link
         href={"/"}
+        onClick={() => {
+          logout();
+        }}
         className="bg-slate-200 flex gap-5 hover:cursor-pointer px-7 py-4 rounded-full
         transition-all duration-300 hover:px-10"
       >

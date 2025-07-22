@@ -1,5 +1,6 @@
 import { deleteCookie, hasCookie } from "cookies-next/client";
 import { api } from "./base";
+import { AxiosError } from "axios";
 
 const API_URL = "/auth";
 
@@ -14,13 +15,15 @@ export interface AuthResponse {
 
 export async function login(
   credentials: LoginCredentials
-): Promise<AuthResponse> {
+): Promise<AuthResponse|AxiosError|any> {
   try {
     const response = await api.post<AuthResponse>(`${API_URL}/`, credentials);
     return response.data;
   } catch (err) {
-    console.error(err);
-    throw new Error("No token received in response");
+    if (err instanceof AxiosError) {
+      return err;
+    }
+    return err
   }
 }
 

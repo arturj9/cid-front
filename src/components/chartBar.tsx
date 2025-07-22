@@ -17,6 +17,7 @@ import {
   ChartTooltip,
   ChartTooltipContent,
 } from "@/components/ui/chart";
+import { Measurement } from "@/services/api/measurement";
 
 export const description = "A multiple bar chart";
 
@@ -39,7 +40,7 @@ const chartConfig = {
   },
 } satisfies ChartConfig;
 
-export function ChartBarMultiple() {
+export function ChartBarMultiple({ data }: { data: Measurement[] }) {
   return (
     <Card>
       <CardHeader>

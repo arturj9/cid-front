@@ -1,5 +1,10 @@
 "use client";
+import { setMeasurement } from "@/services/api/measurement";
+import { setSystemStatus } from "@/services/api/system-status";
+import { generateRandomMeasurement } from "@/services/generate/measurement";
+import { generateRandomSystemStatus } from "@/services/generate/status";
 import { useState } from "react";
+import { toast } from "react-toastify";
 
 export default function Controle() {
   const [status, setStatus] = useState<"Parado" | "Em execução" | "Pausado">(
@@ -45,11 +50,14 @@ export default function Controle() {
     ]);
   }
 
-  function handleColetar() {
+  async function handleColetar() {
     setLog((prev) => [
       ...prev,
       `[${new Date().toLocaleTimeString()}] Coletar Dados`,
     ]);
+    await setSystemStatus(generateRandomSystemStatus())
+    await setMeasurement(generateRandomMeasurement())
+    toast.success("Dados coletados com sucesso.")
   }
 
   function handleFoto() {

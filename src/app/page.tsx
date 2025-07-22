@@ -23,7 +23,7 @@ export default function Login() {
     setLoading(true);
     try {
       const res = await login({ email, password });
-      if (!res.token) {
+      if (!('token' in res) || !res.token) {
         toast.error("Email ou senha inválidos.");
         setLoading(false);
         return;
@@ -33,13 +33,13 @@ export default function Login() {
         path: "/",
         sameSite: "lax",
       });
-      toast.success("Login realizado com sucesso!");
       router.push("/home");
+      toast.success("Login realizado com sucesso!");
     } catch (err) {
-      console.log(err);
       toast.error("Email ou senha inválidos.");
       setLoading(false);
     }
+    toast.error("Email ou senha inválidos.");
     setLoading(false);
   };
 
@@ -119,9 +119,20 @@ export default function Login() {
             </div>
             <button
               type="submit"
+              disabled={loading}
               className="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-yellow-500 focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 h-10 px-4 py-2 w-full bg-yellow-500 hover:bg-yellow-600 text-white"
             >
-              Entrar
+              {loading ? (
+              <>
+                <svg className="animate-spin h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
+                <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8v4a4 4 0 00-4 4H4z"></path>
+                </svg>
+                Entrando...
+              </>
+              ) : (
+              "Entrar"
+              )}
             </button>
           </form>
         </div>

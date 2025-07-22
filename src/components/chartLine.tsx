@@ -6,7 +6,6 @@ import { CartesianGrid, Line, LineChart, XAxis } from "recharts";
 import {
   Card,
   CardContent,
-  CardDescription,
   CardFooter,
   CardHeader,
   CardTitle,
@@ -17,6 +16,7 @@ import {
   ChartTooltip,
   ChartTooltipContent,
 } from "@/components/ui/chart";
+import { Measurement } from "@/services/api/measurement";
 
 export const description = "A line chart with dots";
 
@@ -29,6 +29,7 @@ const chartData = [
   { hora: "21h", desktop: 18, mobile: 18 },
 ];
 
+
 const chartConfig = {
   desktop: {
     label: "Temperatura",
@@ -40,12 +41,16 @@ const chartConfig = {
   },
 } satisfies ChartConfig;
 
-export function ChartLineDots() {
+export function ChartLineDots({ data }: { data: Measurement[] }) {
+  const chartDataT = [data.map(item => ({
+    hora: new Date(item.timestamp).getHours()+'h',
+    desktop: item.temperature,
+    mobile: item.temperature
+  }))];
   return (
     <Card>
       <CardHeader>
         <CardTitle>Temperatura ao longo do dia</CardTitle>
-        <CardDescription>De 6h às 21h do dia</CardDescription>
       </CardHeader>
       <CardContent>
         <ChartContainer config={chartConfig} className=" py-5">
@@ -58,7 +63,6 @@ export function ChartLineDots() {
             }}
           >
             <CartesianGrid vertical={false} />
-
             <XAxis
               dataKey="hora"
               tickLine={false}

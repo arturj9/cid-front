@@ -60,9 +60,9 @@ export function NavBar() {
             prefetch
             href={"/perfil"}
             className="flex gap-2 items-center justify-center bg-laranja w-10 h-10 text-white 
-          rounded-full p-1 text-sm md:text-lg hover:bg-laranja/75 transition-all duration-200"
+          rounded-full text-sm md:text-lg hover:bg-laranja/75 transition-all duration-200"
           >
-            <User width={20} />
+            <img src="https://wallpapers.com/images/high/best-profile-pictures-gzz6bnaf4yygvrnw.webp" alt="Perfil" className="rounded-full" />
           </Link>
         </div>
       </nav>

@@ -1,7 +1,20 @@
+"use client"
+import { getStatus, Status } from "@/services/api/system-status";
 import { Home, BarChart3, Camera, Settings, User } from "lucide-react";
 import Link from "next/link";
+import { useEffect, useState } from "react";
 
 export function Footer() {
+  const [status, setStatus] = useState<Status>()
+  
+    useEffect(()=>{
+      async function fetchData() {
+        const data = await getStatus()
+        setStatus(data)
+      }
+      fetchData()
+    },[])
+    
   return (
     <footer className="bg-preto text-cinza p-5 md:px-10 md:py-7 lg:px-20 ">
       <section className="flex flex-col md:flex-row md:justify-between gap-7 my-7 ">
@@ -94,7 +107,7 @@ export function Footer() {
               </p>
               <p>Versão: v1.0.0</p>
               <p>
-                Última Atualização: <span>Hoje</span>
+                Última Atualização: <span>{status?.timestamp ? new Date(status.timestamp).toLocaleString("pt-BR") : ""}</span>
               </p>
               <h4 className="text-amarelo-sec font-medium">
                 Robô CID Status:{" "}

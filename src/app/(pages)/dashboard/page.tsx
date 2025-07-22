@@ -1,3 +1,4 @@
+"use client";
 import {
   Thermometer,
   Droplets,
@@ -11,8 +12,26 @@ import {
 import { ChartLineDots } from "@/components/chartLine";
 import { ChartBarMultiple } from "@/components/chartBar";
 import { Container } from "@/components/container";
+import { useEffect, useState } from "react";
+import { getStatus, Status } from "@/services/api/system-status";
+import { getMeasurements, Measurement } from "@/services/api/measurement";
 
 export default function Dashboard() {
+  const [status, setStatus] = useState<Status>()
+  const [measurements, setMeasurements] = useState<Measurement[]>([])
+  const [measurementCurrent, setMeasurementCurrent] = useState<Measurement>()
+
+  useEffect(()=>{
+    async function fetchData() {
+      const dataStatus = await getStatus()
+      const dataMeasurements = await getMeasurements()
+      setStatus(dataStatus)
+      setMeasurements(dataMeasurements)
+      setMeasurementCurrent(dataMeasurements[0])
+    }
+    fetchData()
+  },[])
+
   return (
     <Container>
       <div className="p-10">
@@ -32,7 +51,7 @@ export default function Dashboard() {
                   Temperatura Atual
                 </p>
                 <h2 className="font-extrabold text-xl">
-                  28{" "}
+                  {measurementCurrent?.temperature}
                   <span
                     className="
               font-normal"
@@ -40,7 +59,6 @@ export default function Dashboard() {
                     °C
                   </span>
                 </h2>
-                <p className="text-verde text-sm">+2°C desde ontem</p>
               </div>
               <div
                 className="w-16 h-16 rounded-full bg-vermelho flex
@@ -58,7 +76,7 @@ export default function Dashboard() {
                   Umidade do Solo
                 </p>
                 <h2 className="font-extrabold text-xl">
-                  65{" "}
+                  {measurementCurrent?.humidity}
                   <span
                     className="
               font-normal"
@@ -66,7 +84,6 @@ export default function Dashboard() {
                     %
                   </span>
                 </h2>
-                <p className="text-verde text-sm">Ideal para cultivo</p>
               </div>
               <div
                 className="w-16 h-16 rounded-full bg-azul flex
@@ -84,7 +101,7 @@ export default function Dashboard() {
                   Umidade do Ar
                 </p>
                 <h2 className="font-extrabold text-xl">
-                  72{" "}
+                  {measurementCurrent?.humidity}
                   <span
                     className="
               font-normal"
@@ -92,7 +109,6 @@ export default function Dashboard() {
                     %
                   </span>
                 </h2>
-                <p className="text-verde text-sm">Condições favoráveis</p>
               </div>
               <div
                 className="w-16 h-16 rounded-full bg-verde flex
@@ -110,7 +126,7 @@ export default function Dashboard() {
                   Luminosidade
                 </p>
                 <h2 className="font-extrabold text-xl">
-                  70{" "}
+                  {measurementCurrent?.luminosity}
                   <span
                     className="
               font-normal"
@@ -118,7 +134,6 @@ export default function Dashboard() {
                     %
                   </span>{" "}
                 </h2>
-                <p className="text-verde text-sm">Dia</p>
               </div>
               <div
                 className="w-16 h-16 rounded-full bg-amarelo-terc flex
@@ -135,7 +150,7 @@ export default function Dashboard() {
 
         <section className="grid grid-cols-1 lg:grid-cols-2 gap-4 my-4">
           <div className="">
-            <ChartLineDots />
+            <ChartLineDots data={measurements} />
           </div>
 
           {/* ################################################ */}
@@ -143,7 +158,7 @@ export default function Dashboard() {
 
           <section>
             <div className="mb-7 max-w-[700px]">
-              <ChartBarMultiple />
+              <ChartBarMultiple data={measurements} />
             </div>
           </section>
         </section>
@@ -174,7 +189,7 @@ export default function Dashboard() {
                   Bateria
                 </p>
                 <p className="font-semibold">
-                  78 <span>%</span>
+                  {status?.batteryLevel} <span>%</span>
                 </p>
               </div>
               <div className="flex justify-between px-2">
@@ -185,7 +200,7 @@ export default function Dashboard() {
                   Localização
                 </p>
                 <p className="font-semibold">
-                  Setor <span>A-3</span>
+                  Setor <span>{status?.currentSector}</span>
                 </p>
               </div>
               <div className="flex justify-between px-2">
@@ -196,7 +211,7 @@ export default function Dashboard() {
                   Conexão
                 </p>
 
-                <span className="font-semibold">Forte</span>
+                <span className="font-semibold">{status?.connectionLevel}</span>
               </div>
             </section>
           </div>
