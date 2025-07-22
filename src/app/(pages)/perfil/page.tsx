@@ -1,9 +1,24 @@
+"use client";
+
 import { LogOut } from "lucide-react";
 import Link from "next/link";
 import { MyDialogDemo } from "@/components/myDialog";
 import { MyButtonDemo } from "@/components/myButton";
+import { useEffect, useState } from "react";
+import { getUser, User } from "@/services/api/users";
 
 export default function Perfil() {
+  const [user, setUser] = useState<User>();
+
+  useEffect(() => {
+    const fetchUser = async () => {
+      const user = await getUser();
+      console.log(user);
+      setUser(user);
+    };
+    fetchUser();
+  }, []);
+
   return (
     <div className=" flex items-center gap-7 justify-center flex-col p-7">
       <section
@@ -11,12 +26,12 @@ export default function Perfil() {
       justify-between min-w-lg shadow-lg"
       >
         <div className="flex gap-5 items-center">
-          <div className="bg-slate-300 p-1 w-20 h-20 rounded-full object-cover flex justify-center items-center">
-            image
+          <div className="bg-slate-300 w-20 h-20 rounded-full object-cover flex justify-center items-center">
+            <img className="rounded-full " src="https://www.thispersondoesnotexist.com/" alt="Perfil" />
           </div>
           <div>
-            <h2>Nome do Usuário</h2>
-            <p>example@gmail.com</p>
+            <h2>{user?.name}</h2>
+            <p>{user?.email}</p>
           </div>
         </div>
         <div className="flex justify-center items-center gap-3">
@@ -30,8 +45,8 @@ export default function Perfil() {
       shadow-lg min-w-lg"
       >
         <div className="flex gap-5 items-center">
-          <div className="bg-slate-300 w-20 h-20  p-1 rounded-full object-cover flex justify-center items-center">
-            image
+          <div className="bg-slate-300 w-20 h-20 rounded-full object-cover flex justify-center items-center">
+            <img className="rounded-full" src="https://cdn.pixabay.com/photo/2024/01/25/20/12/robot-8532613_1280.png" alt="Robo" />
           </div>
           <div>
             <h2>Modelo CID</h2>
